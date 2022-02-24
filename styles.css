@@ -1,0 +1,512 @@
+html {
+    font-size: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#screen {
+    width: 100vw;
+    /*100 vw = den skal fylde hele siden*/
+    height: 56.25vw;
+    position: relative;
+}
+
+#game {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 167, 255);
+}
+
+
+#game_background {
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    background-image: url(ss3.svg);
+
+    /*baggrundsbillede*/
+    position: absolute;
+}
+
+
+
+#forgrund2 {
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    background-image: url(huller2.svg);
+    position: absolute;
+}
+
+
+
+#time_container {
+    position: absolute;
+    width: 25vw;
+    height: 25vw;
+
+}
+
+#time_sprite {
+    position: absolute;
+    width: 24.9rem;
+    height: 18rem;
+    background-image: url(sol.svg);
+    top: 10vw;
+    left: 1vw;
+}
+
+#start {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(titel.svg);
+    /*baggrundsbillede*/
+    background-size: 100%;
+
+}
+
+
+
+#startknap {
+    position: absolute;
+    width: 30vw;
+    height: 33.7vw;
+    background-image: url(knap.svg);
+    background-size: 100%;
+    top: 19vw;
+    left: 34.2vw;
+
+
+}
+
+#gameover {
+    width: 100%;
+    height: 100%;
+    background-image: url(taber.svg);
+    position: absolute;
+    background-size: 100%;
+
+}
+
+#levelcomplete {
+    width: 100%;
+    height: 100%;
+    background-image: url(vinder.svg);
+    position: absolute;
+    background-size: 100%;
+
+}
+
+#tryagain1,
+#tryagain2 {
+    position: absolute;
+    width: 9vw;
+    height: 9vw;
+    background-image: url(tak.svg);
+    background-size: 100%;
+    top: 0vw;
+    right: 0vw;
+}
+
+/*GAME ELEMENTS*/
+
+#game_elements {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+/*HEST*/
+
+.hest {
+    width: 10vw;
+    height: 12vw;
+    background-image: url(hest.svg);
+    background-size: 100%;
+}
+
+/*POLITI*/
+
+.politi {
+    width: 10vw;
+    height: 12vw;
+    background-image: url(politi.svg);
+    background-size: 100%;
+
+}
+
+.ingenting {
+    width: 10vw;
+    height: 12vw;
+    background-size: 100%
+}
+
+
+/*HUL*/
+
+
+#hul_container_1 {
+    position: absolute;
+    /*    overflow: hidden;*/
+    width: 10vw;
+    height: 12vw;
+    overflow: hidden;
+}
+
+
+#hul_container_2 {
+    position: absolute;
+    /*    overflow: hidden;*/
+    width: 10vw;
+    height: 12vw;
+    overflow: hidden;
+
+}
+
+
+
+#hul_container_3 {
+    position: absolute;
+    overflow: hidden;
+    width: 10vw;
+    height: 12vw;
+}
+
+
+
+#hul_container_4 {
+    position: absolute;
+    overflow: hidden;
+    width: 10vw;
+    height: 12vw;
+    background-size: 100%;
+
+}
+
+
+#hul_container_5 {
+    position: absolute;
+    overflow: hidden;
+    width: 10vw;
+    height: 12vw;
+    background-size: 100%;
+
+}
+
+
+
+#hul_container_6 {
+    position: absolute;
+    overflow: hidden;
+    width: 10vw;
+    height: 12vw;
+    background-size: 100%;
+
+}
+
+
+#hul_container_7 {
+    position: absolute;
+    overflow: hidden;
+    width: 10vw;
+    height: 12vw;
+    background-size: 100%;
+
+}
+
+
+
+#hul_container_8 {
+    position: absolute;
+    overflow: hidden;
+    width: 10vw;
+    height: 12vw;
+    background-size: 100%;
+
+}
+
+
+
+
+#hul_container_9 {
+    position: absolute;
+    overflow: hidden;
+    width: 10vw;
+    height: 12vw;
+    background-size: 100%;
+
+}
+
+/*GAME UI*/
+
+#game_ui {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    pointer-events: none;
+}
+
+#score_board .saek {
+    position: absolute;
+    right: 4.0vw;
+    top: 0.5vw;
+}
+
+#score_board .antal {
+    position: absolute;
+    right: 8.6vw;
+    top: 2.1vw;
+    color: white;
+
+}
+
+.saek {
+    position: absolute;
+    width: 3.2vw;
+    height: 4.2vw;
+    background-image: url(saek.svg);
+    background-size: 100%;
+}
+
+
+#energy_board {
+    position: absolute;
+    right: 17vw;
+    top: 1vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.mistetliv {
+    width: 3vw;
+    height: 3.5vw;
+    background-image: url(hand.svg);
+    background-size: 100%;
+
+}
+
+
+#time_board {}
+
+
+
+.sol {
+    animation-name: sol_kf;
+    animation-duration: 50s;
+    animation-iteration-count: infinite;
+
+}
+
+@keyframes sol_kf {
+    0% {
+        left: -5vw;
+    }
+
+    25% {
+        top: 0vw;
+    }
+
+    40% {
+        top: 0vw;
+    }
+
+    100% {
+        left: 100vw;
+    }
+
+}
+
+/*KEYFRAMES*/
+@keyframes fade_kf {
+
+
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.pulse:hover {
+    animation-name: pulse_kf;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes pulse_kf {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        transform: scale(1.2, 1.2);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+.glow {
+    animation-name: glow_kf;
+    animation-duration: 50s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+
+
+}
+
+@keyframes glow_kf {
+
+    10% {
+        filter: drop-shadow(10px 10px 20px yellow);
+
+    }
+}
+
+
+
+.delay1 {
+    animation-delay: 1s;
+}
+
+.delay2 {
+    animation-delay: 1.5s;
+}
+
+
+audio {
+    display: none;
+}
+
+
+.popup {
+    animation-name: popup_kf;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+
+}
+
+@keyframes popup_kf {
+    0% {
+
+        transform: translateY(12vw);
+    }
+
+    50% {
+
+        transform: translateY(0);
+    }
+
+    100% {
+
+        transform: translateY(12vw);
+    }
+}
+
+.forsvind {
+    animation-name: forsvind_kf;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(.59, -0.56, .77, 1.34);
+    animation-fill-mode: forwards;
+}
+
+@keyframes forsvind_kf {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(0);
+    }
+}
+
+/*CLASSES*/
+
+.fade {
+    animation-name: fade_kf;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+
+/* EFFEKTER */
+
+.blur {
+    filter: blur(5px) brightness(80%);
+}
+
+.grey {
+    filter: grayscale(80%);
+}
+
+.paused {
+    animation-play-state: paused;
+}
+
+.hide {
+    display: none;
+    /* Eller evt. visibility: none;*/
+}
+
+/* POSITIONER */
+
+.pos1 {
+    left: 29vw;
+    bottom: 8vw;
+}
+
+.pos2 {
+    right: 7vw;
+    bottom: 6vw;
+}
+
+.pos3 {
+    left: 14vw;
+    bottom: 14vw;
+}
+
+.pos4 {
+    left: 32vw;
+    bottom: 18vw;
+}
+
+.pos5 {
+    right: 29vw;
+    bottom: 8vw;
+}
+
+.pos6 {
+    left: 44vw;
+    bottom: 11vw;
+}
+
+.pos7 {
+    bottom: 22vw;
+    right: 41vw;
+}
+
+.pos8 {
+    bottom: 17vw;
+    right: 9vw;
+}
+
+.pos9 {
+    bottom: 19vw;
+    right: 27vw;
+}
