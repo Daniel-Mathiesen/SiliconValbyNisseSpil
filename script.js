@@ -1,5 +1,4 @@
 window.addEventListener("load", sidenVises);
-
 let liv;
 let point;
 let myRandom;
@@ -52,21 +51,22 @@ function startspil() {
     document.querySelector("#heart2").classList.remove("grey");
     document.querySelector("#heart3").classList.remove("grey");
 
-    //Start animation på heste
-    document.querySelector("#hul_container_1").addEventListener("click", klikhest);
-    document.querySelector("#hul_container_2").addEventListener("click", klikpoliti);
+    // //Start animation på heste
+    // document.querySelector("#hul_container_1").addEventListener("click", klikhest);
+    // document.querySelector("#hul_container_2").addEventListener("click", klikpoliti);
 
-    document.querySelector("#hul_container_3").addEventListener("click", ingenting);
+    // document.querySelector("#hul_container_3").addEventListener("click", ingenting);
 
-    document.querySelector("#hul_container_4").addEventListener("click", klikhest);
-    document.querySelector("#hul_container_5").addEventListener("click", klikhest);
+    // document.querySelector("#hul_container_4").addEventListener("click", klikhest);
+    // document.querySelector("#hul_container_5").addEventListener("click", klikhest);
 
-    //Start animation på Politi
-    document.querySelector("#hul_container_6").addEventListener("click", ingenting);
-    document.querySelector("#hul_container_7").addEventListener("click", klikpoliti);
-    document.querySelector("#hul_container_8").addEventListener("click", klikpoliti);
-    document.querySelector("#hul_container_9").addEventListener("click", klikpoliti);
+    // //Start animation på Politi
+    // document.querySelector("#hul_container_6").addEventListener("click", ingenting);
+    // document.querySelector("#hul_container_7").addEventListener("click", klikpoliti);
+    // document.querySelector("#hul_container_8").addEventListener("click", klikpoliti);
+    // document.querySelector("#hul_container_9").addEventListener("click", klikpoliti);
 
+    
     document.querySelector("#hul1_sprite").classList.add("popup");
     document.querySelector("#hul2_sprite").classList.add("popup");
     document.querySelector("#hul3_sprite").classList.add("popup");
@@ -129,15 +129,16 @@ function klikhest() {
     point = point + 10000000;
 
 
-
+    
+    this.removeEventListener("click", klikhest);
     //Vis samlet antal point
     document.querySelector(".antal").textContent = point;
-
+    
     //hest forsvinder
     this.querySelector(".hest").classList.remove("delay1");
     this.querySelector(".hest").classList.remove("delay2");
     this.querySelector(".hest").classList.add("forsvind");
-
+    
     // afspil lyd
     document.querySelector("#sound_hest").volume = 1;
     document.querySelector("#sound_hest").play();
@@ -145,8 +146,7 @@ function klikhest() {
     this.addEventListener("animationend", nytilfaeldig);
 
 
-    this.classList.add("paused");
-    this.removeEventListener("click", klikhest);
+
 
 }
 
@@ -179,6 +179,7 @@ function klikpoliti() {
 
     //TRANSITIONS------>
     //Forsvindanimationen er færdig -> nytilfaeldig
+
     this.addEventListener("animationend", nytilfaeldig);
     //Ingen liv tilbage -> spilstopper
     if (liv == 0) {
@@ -191,11 +192,10 @@ function klikpoliti() {
 
 }
 
-
+let lastHole;
 
 function nytilfaeldig() {
     //console.log("nytilfaeldig");
-
     //giv random pos
     myRandom = Math.floor(Math.random() * 9 + 1);
     //console.log("nytilfaeldig tal: " + myRandom);
@@ -208,8 +208,12 @@ function nytilfaeldig() {
     this.classList.remove("pos7");
     this.classList.remove("pos8");
     this.classList.remove("pos9");
-
+    console.log(myRandom)
     this.classList.add("pos" + myRandom);
+
+    if(myRandom === lastHole){
+        console.log("fy fy skamme skamme")
+    }
 
     //fjern amination og tilføj igen
     this.firstElementChild.classList.remove("forsvind");
@@ -219,8 +223,11 @@ function nytilfaeldig() {
     this.addEventListener("click", klikpoliti);
 
 
-
+    lastHole = myRandom
 }
+
+
+// Spillets stoppe funktioner neden under
 
 function spilstopper() {
     console.log("spilstopper");
@@ -270,7 +277,7 @@ function spilstopper() {
 
     //[mere end 110 point] --> vinder
     if (erSpilletStoppet == false) {
-        if (point >= 110000000) {
+        if (point >= 110000000 && liv >=1) {
             levelcomplete();
         } else {
             gameover();
@@ -325,4 +332,4 @@ function gameover() {
     //Afspil lyd
     document.querySelector("#sound_taber").volume = 1;
     document.querySelector("#sound_taber").play();
-}
+} 

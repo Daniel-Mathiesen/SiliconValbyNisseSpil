@@ -1,119 +1,91 @@
 <!DOCTYPE html>
 <html lang="da">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Min Afrikanske Farm</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body>
-
+  <body>
     <div id="screen">
-        <div id="game">
-            <div id="time_container">
-                <div id="time_sprite"></div>
-            </div>
-            <div id="game_background"></div>
-
-
-            <div id="forgrund2"></div>
-            <div id="game_elements">
-                <div id="hul_container_1" class="pos1">
-                    <div id="hul1_sprite" class="hest delay1">
-
-                    </div>
-                </div>
-
-                <div id="hul_container_2" class="pos2">
-                    <div id="hul2_sprite" class="politi delay2">
-
-                    </div>
-                </div>
-
-                <div id="hul_container_3" class="pos3">
-                    <div id="hul3_sprite" class="ingenting">
-
-                    </div>
-                </div>
-
-
-                <div id="hul_container_4" class="pos4">
-                    <div id="hul4_sprite" class="hest delay3">
-
-                    </div>
-                </div>
-                <div id="hul_container_5" class="pos5">
-                    <div id="hul5_sprite" class="hest">
-
-                    </div>
-                </div>
-
-                <div id="hul_container_6" class="pos6">
-                    <div id="hul6_sprite" class="ingenting">
-
-                    </div>
-                </div>
-
-                <div id="hul_container_7" class="pos7">
-                    <div id="hul7_sprite" class="politi delay1">
-
-                    </div>
-                </div>
-
-                <div id="hul_container_8" class="pos8">
-                    <div id="hul8_sprite" class="politi">
-
-                    </div>
-                </div>
-
-                <div id="hul_container_9" class="pos9">
-                    <div id="hul9_sprite" class="politi">
-
-                    </div>
-                </div>
-            </div>
-            <div id="game_ui">
-                <div id="score_board">
-                    <div class="saek">
-
-                    </div>
-                    <div class="antal"></div>
-                </div>
-                <div id="energy_board">
-                    <div id="heart1" class="mistetliv"></div>
-                    <div id="heart2" class="mistetliv"></div>
-                    <div id="heart3" class="mistetliv"></div>
-                </div>
-                <div id="time_board">
-                </div>
-            </div>
-
+      <div id="game">
+        <div id="time_container">
+          <div id="time_sprite"></div>
         </div>
-        <div id="start">
-            <div id="startknap"></div>
-            <div id="iknap"></div>
-        </div>
-        <div id="gameover">
-            <div id="tryagain1"></div>
-        </div>
+        <div id="game_background"></div>
 
-        <div id="levelcomplete">
-            <div id="tryagain2"></div>
-        </div>
+        <div id="forgrund2"></div>
+        <div id="game_elements">
+          <div id="hul_container_1" class="hole pos1">
+            <div id="hul1_sprite" class="hest delay1"></div>
+          </div>
 
+          <div id="hul_container_2" class="hole pos2">
+            <div id="hul2_sprite" class="politi delay2"></div>
+          </div>
+
+          <div id="hul_container_3" class="hole pos3">
+            <div id="hul3_sprite" class="ingenting"></div>
+          </div>
+
+          <div id="hul_container_4" class="hole pos4">
+            <div id="hul4_sprite" class="hest delay3"></div>
+          </div>
+          <div id="hul_container_5" class="hole pos5">
+            <div id="hul5_sprite" class="hest"></div>
+          </div>
+
+          <div id="hul_container_6" class="hole pos6">
+            <div id="hul6_sprite" class="ingenting"></div>
+          </div>
+
+          <div id="hul_container_7" class="hole pos7">
+            <div id="hul7_sprite" class="politi delay1"></div>
+          </div>
+
+          <div id="hul_container_8" class="hole pos8">
+            <div id="hul8_sprite" class="politi"></div>
+          </div>
+
+          <div id="hul_container_9" class="hole pos9">
+            <div id="hul9_sprite" class="politi"></div>
+          </div>
+        </div>
+        <div id="game_ui">
+          <div id="score_board">
+            <div class="saek"></div>
+            <div class="antal"></div>
+          </div>
+          <div id="energy_board">
+            <div id="heart1" class="mistetliv"></div>
+            <div id="heart2" class="mistetliv"></div>
+            <div id="heart3" class="mistetliv"></div>
+          </div>
+          <div id="time_board"></div>
+        </div>
+      </div>
+      <div id="start">
+        <div id="startknap"></div>
+        <div id="iknap"></div>
+      </div>
+      <div id="gameover">
+        <div id="tryagain1"></div>
+      </div>
+
+      <div id="levelcomplete">
+        <div id="tryagain2"></div>
+      </div>
     </div>
 
     <div id="sounds">
-        <audio src="hest.mp3" id="sound_hest" controls></audio>
-        <audio src="fy.mp3" id="sound_politi" controls></audio>
-        <audio src="taber.mp3" id="sound_taber" controls></audio>
-        <audio src="vinder.mp3" id="sound_vinder" controls></audio>
-        <audio src="baggrundlyd.mp3" id="sound_baggrund" controls></audio>
+      <audio src="hest.mp3" id="sound_hest" controls></audio>
+      <audio src="fy.mp3" id="sound_politi" controls></audio>
+      <audio src="taber.mp3" id="sound_taber" controls></audio>
+      <audio src="vinder.mp3" id="sound_vinder" controls></audio>
+      <audio src="baggrundlyd.mp3" id="sound_baggrund" controls></audio>
     </div>
 
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
