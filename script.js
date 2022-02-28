@@ -2,6 +2,7 @@ window.addEventListener("load", sidenVises);
 let liv;
 let point;
 let myRandom;
+let myRandom2;
 let erSpilletStoppet = false;
 
 let gameTimer;
@@ -33,6 +34,9 @@ function sidenVises() {
 
 }
 
+function reload(){
+    document.location.reload()
+}
 
 
 function startspil() {
@@ -52,19 +56,19 @@ function startspil() {
     document.querySelector("#heart3").classList.remove("grey");
 
     // //Start animation på heste
-    // document.querySelector("#hul_container_1").addEventListener("click", klikhest);
-    // document.querySelector("#hul_container_2").addEventListener("click", klikpoliti);
+    document.querySelector("#hul_container_1").addEventListener("click", klikhest);
+    document.querySelector("#hul_container_2").addEventListener("click", klikpoliti);
 
-    // document.querySelector("#hul_container_3").addEventListener("click", ingenting);
+    document.querySelector("#hul_container_3").addEventListener("click", ingenting);
 
-    // document.querySelector("#hul_container_4").addEventListener("click", klikhest);
-    // document.querySelector("#hul_container_5").addEventListener("click", klikhest);
+    document.querySelector("#hul_container_4").addEventListener("click", klikhest);
+    document.querySelector("#hul_container_5").addEventListener("click", klikhest);
 
-    // //Start animation på Politi
-    // document.querySelector("#hul_container_6").addEventListener("click", ingenting);
-    // document.querySelector("#hul_container_7").addEventListener("click", klikpoliti);
-    // document.querySelector("#hul_container_8").addEventListener("click", klikpoliti);
-    // document.querySelector("#hul_container_9").addEventListener("click", klikpoliti);
+    //Start animation på Politi
+    document.querySelector("#hul_container_6").addEventListener("click", ingenting);
+    document.querySelector("#hul_container_7").addEventListener("click", klikpoliti);
+    document.querySelector("#hul_container_8").addEventListener("click", klikpoliti);
+    document.querySelector("#hul_container_9").addEventListener("click", klikpoliti);
 
     
     document.querySelector("#hul1_sprite").classList.add("popup");
@@ -77,15 +81,15 @@ function startspil() {
     document.querySelector("#hul8_sprite").classList.add("popup");
     document.querySelector("#hul9_sprite").classList.add("popup");
 
-    document.querySelector("#hul_container_1").addEventListener("animationiteration", nytilfaeldig);
-    document.querySelector("#hul_container_2").addEventListener("animationiteration", nytilfaeldig);
-    document.querySelector("#hul_container_3").addEventListener("animationiteration", nytilfaeldig);
-    document.querySelector("#hul_container_4").addEventListener("animationiteration", nytilfaeldig);
-    document.querySelector("#hul_container_5").addEventListener("animationiteration", nytilfaeldig);
-    document.querySelector("#hul_container_6").addEventListener("animationiteration", nytilfaeldig);
-    document.querySelector("#hul_container_7").addEventListener("animationiteration", nytilfaeldig);
-    document.querySelector("#hul_container_8").addEventListener("animationiteration", nytilfaeldig);
-    document.querySelector("#hul_container_9").addEventListener("animationiteration", nytilfaeldig);
+    document.querySelector("#hul_container_1").addEventListener("animationiteration", nytilfaeldigNisse);
+    document.querySelector("#hul_container_2").addEventListener("animationiteration", nytilfaeldigNisse);
+    document.querySelector("#hul_container_3").addEventListener("animationiteration", nytilfaeldigNisse);
+    document.querySelector("#hul_container_4").addEventListener("animationiteration", nytilfaeldigNisse);
+    document.querySelector("#hul_container_5").addEventListener("animationiteration", nytilfaeldigNisse);
+    document.querySelector("#hul_container_6").addEventListener("animationiteration", nytilfaeldigKaptajn);
+    document.querySelector("#hul_container_7").addEventListener("animationiteration", nytilfaeldigKaptajn);
+    document.querySelector("#hul_container_8").addEventListener("animationiteration", nytilfaeldigKaptajn);
+    document.querySelector("#hul_container_9").addEventListener("animationiteration", nytilfaeldigKaptajn);
 
 
     // Fjerner eventlistnere på tryagain knapper
@@ -126,24 +130,22 @@ function klikhest() {
     console.log("klikhest " + point);
 
     //få point
-    point = point + 10000000;
-
-
     
     this.removeEventListener("click", klikhest);
+    point = point + 10000000;
     //Vis samlet antal point
     document.querySelector(".antal").textContent = point;
     
     //hest forsvinder
     this.querySelector(".hest").classList.remove("delay1");
-    this.querySelector(".hest").classList.remove("delay2");
-    this.querySelector(".hest").classList.add("forsvind");
+    // this.querySelector(".hest").classList.remove("delay2");
+    // this.querySelector(".hest").classList.add("forsvind");
     
     // afspil lyd
     document.querySelector("#sound_hest").volume = 1;
     document.querySelector("#sound_hest").play();
     //forsvind animation færdig --> nytilfaeldig
-    this.addEventListener("animationend", nytilfaeldig);
+    this.addEventListener("animationend");
 
 
 
@@ -160,11 +162,11 @@ function klikpoliti() {
 
 
     //politi forsvinder
-
+    this.removeEventListener("click", klikpoliti);
 
     this.querySelector(".politi").classList.remove("delay1");
     this.querySelector(".politi").classList.remove("delay2");
-    this.querySelector(".politi").classList.add("forsvind");
+    // this.querySelector(".politi").classList.add("forsvind");
 
     // afspil lyd
     document.querySelector("#sound_politi").volume = 1;
@@ -180,39 +182,39 @@ function klikpoliti() {
     //TRANSITIONS------>
     //Forsvindanimationen er færdig -> nytilfaeldig
 
-    this.addEventListener("animationend", nytilfaeldig);
+    this.addEventListener("animationend", nytilfaeldigKaptajn);
     //Ingen liv tilbage -> spilstopper
     if (liv == 0) {
         spilstopper();
     }
 
-    this.classList.add("paused");
+    // this.classList.add("paused");
 
-    this.removeEventListener("click", klikpoliti);
+    // this.removeEventListener("click", klikpoliti);
 
 }
 
 let lastHole;
+let lastHole2;
 
-function nytilfaeldig() {
+function nytilfaeldigNisse() {
+
+    changeNisse()
     //console.log("nytilfaeldig");
     //giv random pos
-    myRandom = Math.floor(Math.random() * 9 + 1);
+    myRandom = Math.floor(Math.random() * 4 + 1);
     //console.log("nytilfaeldig tal: " + myRandom);
     this.classList.remove("pos1");
     this.classList.remove("pos2");
     this.classList.remove("pos3");
     this.classList.remove("pos4");
     this.classList.remove("pos5");
-    this.classList.remove("pos6");
-    this.classList.remove("pos7");
-    this.classList.remove("pos8");
-    this.classList.remove("pos9");
     console.log(myRandom)
     this.classList.add("pos" + myRandom);
 
     if(myRandom === lastHole){
-        console.log("fy fy skamme skamme")
+        // console.log("fy fy skamme skamme")
+        // return nytilfaeldigNisse()
     }
 
     //fjern amination og tilføj igen
@@ -220,12 +222,49 @@ function nytilfaeldig() {
     this.offsetHeight;
 
     this.addEventListener("click", klikhest);
-    this.addEventListener("click", klikpoliti);
 
 
     lastHole = myRandom
 }
 
+function nytilfaeldigKaptajn() {
+    //console.log("nytilfaeldig");
+    //giv random pos
+    myRandom2 = Math.floor(Math.random() * 4 + 5);
+    //console.log("nytilfaeldig tal: " + myRandom);
+    this.classList.remove("pos6");
+    this.classList.remove("pos7");
+    this.classList.remove("pos8");
+    this.classList.remove("pos9");
+    // console.log(myRandom2)
+    this.classList.add("pos" + myRandom2);
+
+    if(myRandom2 === lastHole2){
+        // console.log("fy fy skamme skamme")
+        // return nytilfaeldigKaptajn()
+    }
+
+    //fjern amination og tilføj igen
+    this.firstElementChild.classList.remove("forsvind");
+    this.offsetHeight;
+
+    this.addEventListener("click", klikpoliti);
+
+    lastHole2 = myRandom2
+}
+
+function changeNisse(){
+    const nisser = [
+      'url("svgs/sigurd.svg")',
+      'url("svgs/saxo.svg")',
+      'url("svgs/saga.svg")'
+    ]
+
+    const nisse = document.querySelector(".hest")
+    const bgNisse = nisser[Math.floor(Math.random() * nisser.length)];
+    nisse.style.backgroundImage = bgNisse;
+  }
+//   setInterval(changeNisse, 4000)
 
 // Spillets stoppe funktioner neden under
 
@@ -236,23 +275,23 @@ function spilstopper() {
 
 
     document.querySelector("#hul_container_1").removeEventListener("click", klikhest);
-    document.querySelector("#hul_container_1").removeEventListener("click", nytilfaeldig);
+    document.querySelector("#hul_container_1").removeEventListener("click", nytilfaeldigNisse);
     document.querySelector("#hul_container_2").removeEventListener("click", klikhest);
-    document.querySelector("#hul_container_2").removeEventListener("click", nytilfaeldig);
+    document.querySelector("#hul_container_2").removeEventListener("click", nytilfaeldigNisse);
     document.querySelector("#hul_container_3").removeEventListener("click", klikhest);
-    document.querySelector("#hul_container_3").removeEventListener("click", nytilfaeldig);
+    document.querySelector("#hul_container_3").removeEventListener("click", nytilfaeldigNisse);
     document.querySelector("#hul_container_4").removeEventListener("click", klikhest);
-    document.querySelector("#hul_container_4").removeEventListener("click", nytilfaeldig);
+    document.querySelector("#hul_container_4").removeEventListener("click", nytilfaeldigNisse);
     document.querySelector("#hul_container_5").removeEventListener("click", klikhest);
-    document.querySelector("#hul_container_5").removeEventListener("click", nytilfaeldig);
+    document.querySelector("#hul_container_5").removeEventListener("click", nytilfaeldigNisse);
     document.querySelector("#hul_container_6").removeEventListener("click", klikpoliti);
-    document.querySelector("#hul_container_6").removeEventListener("click", nytilfaeldig);
+    document.querySelector("#hul_container_6").removeEventListener("click", nytilfaeldigKaptajn);
     document.querySelector("#hul_container_7").removeEventListener("click", klikpoliti);
-    document.querySelector("#hul_container_7").removeEventListener("click", nytilfaeldig);
+    document.querySelector("#hul_container_7").removeEventListener("click", nytilfaeldigKaptajn);
     document.querySelector("#hul_container_8").removeEventListener("click", klikpoliti);
-    document.querySelector("#hul_container_8").removeEventListener("click", nytilfaeldig);
+    document.querySelector("#hul_container_8").removeEventListener("click", nytilfaeldigKaptajn);
     document.querySelector("#hul_container_9").removeEventListener("click", klikpoliti);
-    document.querySelector("#hul_container_9").removeEventListener("click", nytilfaeldig);
+    document.querySelector("#hul_container_9").removeEventListener("click", nytilfaeldigKaptajn);
     document.querySelector("#hul1_sprite").classList.remove("popup");
     document.querySelector("#hul2_sprite").classList.remove("popup");
     document.querySelector("#hul3_sprite").classList.remove("popup");
@@ -265,15 +304,15 @@ function spilstopper() {
 
 
 
-    document.querySelector("#hul_container_1").removeEventListener("animationiteration", nytilfaeldig);
-    document.querySelector("#hul_container_2").removeEventListener("animationiteration", nytilfaeldig);
-    document.querySelector("#hul_container_3").removeEventListener("animationiteration", nytilfaeldig);
-    document.querySelector("#hul_container_4").removeEventListener("animationiteration", nytilfaeldig);
-    document.querySelector("#hul_container_5").removeEventListener("animationiteration", nytilfaeldig);
-    document.querySelector("#hul_container_6").removeEventListener("animationiteration", nytilfaeldig);
-    document.querySelector("#hul_container_7").removeEventListener("animationiteration", nytilfaeldig);
-    document.querySelector("#hul_container_8").removeEventListener("animationiteration", nytilfaeldig);
-    document.querySelector("#hul_container_9").removeEventListener("animationiteration", nytilfaeldig);
+    document.querySelector("#hul_container_1").removeEventListener("animationiteration", nytilfaeldigNisse);
+    document.querySelector("#hul_container_2").removeEventListener("animationiteration", nytilfaeldigNisse);
+    document.querySelector("#hul_container_3").removeEventListener("animationiteration", nytilfaeldigNisse);
+    document.querySelector("#hul_container_4").removeEventListener("animationiteration", nytilfaeldigNisse);
+    document.querySelector("#hul_container_5").removeEventListener("animationiteration", nytilfaeldigNisse);
+    document.querySelector("#hul_container_6").removeEventListener("animationiteration", nytilfaeldigKaptajn);
+    document.querySelector("#hul_container_7").removeEventListener("animationiteration", nytilfaeldigKaptajn);
+    document.querySelector("#hul_container_8").removeEventListener("animationiteration", nytilfaeldigKaptajn);
+    document.querySelector("#hul_container_9").removeEventListener("animationiteration", nytilfaeldigKaptajn);
 
     //[mere end 110 point] --> vinder
     if (erSpilletStoppet == false) {
@@ -302,7 +341,7 @@ function levelcomplete() {
     // Viser levelComplete skærmen
     document.querySelector("#levelcomplete").classList.remove("hide");
     // Går til startspil når man klikker på knappen
-    document.querySelector("#tryagain2").addEventListener("click", sidenVises);
+    document.querySelector("#tryagain2").addEventListener("click", reload);
 
     //Afspil lyd
     document.querySelector("#sound_vinder").volume = 1;
@@ -327,7 +366,8 @@ function gameover() {
     //vis taberskærm
     document.querySelector("#gameover").classList.remove("hide");
     // Går til startspil når man klikker på knappen
-    document.querySelector("#tryagain1").addEventListener("click", sidenVises);
+    document.querySelector("#tryagain1").addEventListener("click", reload);
+    
 
     //Afspil lyd
     document.querySelector("#sound_taber").volume = 1;

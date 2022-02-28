@@ -1,10 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap');
+
 html {
     font-size: 100%;
+    background-color: #EAEAEA;
+    overflow-x: hidden;
 }
 
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Finger Paint', cursive;
+    width: 100%;
 }
 
 #screen {
@@ -67,7 +73,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url(svgs/titel.svg);
+    background-image: url(images/titleScreen.jpg);
     /*baggrundsbillede*/
     background-size: 100%;
 
@@ -79,10 +85,11 @@ body {
     position: absolute;
     width: 30vw;
     height: 33.7vw;
-    background-image: url(svgs/knap.svg);
+    background-image: url(images/startKnap.png);
+    background-repeat: no-repeat;
     background-size: 100%;
-    top: 19vw;
-    left: 34.2vw;
+    top: 51.5vw;
+    left: 36.5vw;
 
 
 }
@@ -383,12 +390,13 @@ body {
 
 
 .delay1 {
-    animation-delay: 100s;
+    animation-delay: 1.7s;
 }
 
 .delay2 {
-    animation-delay: 100s;
+    animation-delay: 2.2s;
 }
+
 
 
 audio {
@@ -398,7 +406,7 @@ audio {
 
 .popup {
     animation-name: popup_kf;
-    animation-duration: 2.5s;
+    animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-fill-mode: both;
 
