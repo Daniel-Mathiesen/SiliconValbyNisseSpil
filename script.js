@@ -256,7 +256,7 @@ function nytilfaeldigKaptajn() {
 function changeNisse(){
     const nisser = [
       'url("svgs/sigurd.svg")',
-      'url("svgs/saxo.svg")',
+      'url("images/saxo.png")',
       'url("svgs/saga.svg")'
     ]
 
