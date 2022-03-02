@@ -8,6 +8,10 @@
   </head>
 
   <body>
+    <div id="blackout">
+      <div id="blackout_text">
+        <p>Vend skærmen vandret for at spille!</p>
+      </div>
     <div id="screen">
       <div id="game">
         <div id="time_container">
@@ -37,7 +41,7 @@
           </div>
 
           <div id="hul_container_6" class="hole pos6">
-            <div id="hul6_sprite" class="ingenting"></div>
+            <div id="hul6_sprite" class="politi delay1"></div>
           </div>
 
           <div id="hul_container_7" class="hole pos7">
@@ -45,7 +49,7 @@
           </div>
 
           <div id="hul_container_8" class="hole pos8">
-            <div id="hul8_sprite" class="politi delay1"></div>
+            <div id="hul8_sprite" class="ingenting"></div>
           </div>
 
           <div id="hul_container_9" class="hole pos9">
@@ -66,8 +70,18 @@
         </div>
       </div>
       <div id="start">
+        <div id="info">
+          <h3>Sådan her spiller du</h3>
+          <p>Nisserne, Sigurd, Saga og Saxo, vil have alle kaptajnens pandekagerne til morgenmad! 
+            <br>
+            <br>
+            Når en af nisserne viser sig fra en krukke, skal du trykke på den, så den gemmer sig igen.
+            <br>
+            <br>
+            Men pas på! Trykker du på kaptajnen tre gange, bliver nisserne opdaget!!!
+          </p>
+        </div>
         <div id="startknap"></div>
-        <div id="iknap"></div>
       </div>
       <div id="gameover">
         <div id="tryagain1"></div>
@@ -77,30 +91,19 @@
         <div id="tryagain2"></div>
       </div>
     </div>
+  </div>
 
     <div id="sounds">
-      <audio src="hest.mp3" id="sound_hest" controls></audio>
-      <audio src="fy.mp3" id="sound_politi" controls></audio>
-      <audio src="taber.mp3" id="sound_taber" controls></audio>
-      <audio src="vinder.mp3" id="sound_vinder" controls></audio>
-      <audio src="baggrundlyd.mp3" id="sound_baggrund" controls></audio>
+      <audio src="sounds/mmm.mp3" id="sound_sigurd" controls></audio>
+      <audio src="sounds/slurp.mp3" id="sound_saxo" controls></audio>
+      <audio src="sounds/mm-pande.mp3" id="sound_saga" controls></audio>
+      <audio src="sounds/hey.mp3" id="sound_hey" controls></audio>
+      <audio src="sounds/hov hov.mp3" id="sound_hovhov" controls></audio>
+      <audio src="sounds/taber.mp3" id="sound_taber" controls></audio>
+      <audio src="sounds/vinder.mp3" id="sound_vinder" controls></audio>
+      <audio src="sounds/baggrundlyd.mp3" id="sound_baggrund" controls></audio>
+      <audio src="sounds/ørn.mp3" id="sound_ørn" controls></audio>
     </div>
-
     <script src="script.js"></script>
-    <script>
-      // function changeNisse(){
-      //   const nisser = [
-      //     'url("svgs/sigurd.svg")',
-      //     'url("svgs/saxo.svg")',
-      //     'url("svgs/saga.svg")'
-      //   ]
-
-      //   const nisse = document.querySelector(".hest")
-      //   const bgNisse = nisser[Math.floor(Math.random() * nisser.length)];
-      //   nisse.style.backgroundImage = bgNisse;
-      // }
-
-      // setInterval(changeNisse, 4200)
-    </script>
   </body>
 </html>

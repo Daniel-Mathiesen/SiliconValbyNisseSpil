@@ -3,7 +3,7 @@
 html {
     font-size: 100%;
     background-color: #EAEAEA;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 body {
@@ -11,6 +11,10 @@ body {
     padding: 0;
     font-family: 'Finger Paint', cursive;
     width: 100%;
+}
+
+#blackout_text{
+    display: none;
 }
 
 #screen {
@@ -34,7 +38,7 @@ body {
     background-size: 100%;
     width: 100%;
     height: 100%;
-    background-image: url(svgs/ss3.svg);
+    background-image: url(images/background.jpg);
     /*baggrundsbillede*/
     position: absolute;
 }
@@ -45,8 +49,9 @@ body {
     background-size: 100%;
     width: 100%;
     height: 100%;
-    background-image: url(svgs/huller2.svg);
+    background-image: url();
     position: absolute;
+    z-index: 1;
 }
 
 
@@ -55,72 +60,129 @@ body {
     position: absolute;
     width: 25vw;
     height: 25vw;
-
+    z-index: 2;
 }
 
 #time_sprite {
     position: absolute;
-    width: 24.9rem;
-    height: 18rem;
-    background-image: url(svgs/sol.svg);
+    width: 50%;
+    height: 50%;
+    background-image: url(svgs/eagle.svg);
+    background-repeat: no-repeat;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
     top: 10vw;
     left: 1vw;
+    z-index: 2;
 }
 
 #start {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -4%;
+    left: -14%;
     width: 100%;
     height: 100%;
     background-image: url(images/titleScreen.jpg);
     /*baggrundsbillede*/
-    background-size: 100%;
-
+    background-size: 90%;
+    background-repeat: no-repeat;
+    z-index: 10;
 }
+
 
 
 
 #startknap {
     position: absolute;
     width: 30vw;
-    height: 33.7vw;
+    height: 6vw;
     background-image: url(images/startKnap.png);
     background-repeat: no-repeat;
     background-size: 100%;
-    top: 51.5vw;
-    left: 36.5vw;
+    top: 38vw;
+    left: 78.5vw;
 
+}
 
+#info{
+    text-align: center;
+    font-size: 1.6vw;
+    position: absolute;
+    width: 30vw;
+    height: 6vw;
+    top: 6vw;
+    left: 78.5vw;
+
+}
+
+#info h3{
+    border-bottom: 3px solid black;
+    padding-bottom: 10px;
+}
+
+#info p{
+    font-size: 1.3vw;
+    line-height: 2.3vw;
 }
 
 #gameover {
+    
+    position: absolute;
+    top: 2%;
+    left: -7%;
     width: 100%;
     height: 100%;
-    background-image: url(svgs/taber.svg);
-    position: absolute;
-    background-size: 100%;
+    /*baggrundsbillede*/
+    background-size: 75%;
+    background-repeat: no-repeat;
+    background-image: url(images/taber2.png);
+    background-repeat: no-repeat;
+    z-index: 3;
+}
 
+#tryagain1{
+
+    
+    position: absolute;
+    width: 30vw;
+    height: 6vw;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    top: 18vw;
+    left: 67.5vw;
+}
+
+#tryagain2{
+    position: absolute;
+    width: 30vw;
+    height: 6vw;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    top: 18vw;
+    left: 67.5vw;
 }
 
 #levelcomplete {
+    position: absolute;
+    top: 2%;
+    left: -7%;
     width: 100%;
     height: 100%;
-    background-image: url(svgs/vinder.svg);
-    position: absolute;
-    background-size: 100%;
+    /*baggrundsbillede*/
+    background-size: 75%;
+    background-repeat: no-repeat;
+    z-index: 3;
 
+    background-image: url(images/vinder.png);
 }
 
 #tryagain1,
 #tryagain2 {
-    position: absolute;
-    width: 9vw;
-    height: 9vw;
-    background-image: url(svgs/tak.svg);
+    width: 30vw;
+    height: 6vw;
+    background-image: url(images/prøvIgen.png);
+    background-repeat: no-repeat;
     background-size: 100%;
-    top: 0vw;
-    right: 0vw;
 }
 
 /*GAME ELEMENTS*/
@@ -136,8 +198,9 @@ body {
 .hest {
     width: 10vw;
     height: 12vw;
-    background-image: url(svgs/sigurd.svg);
+    background-image: url();
     background-size: 100%;
+    z-index: 3;
 }
 
 /*POLITI*/
@@ -145,9 +208,9 @@ body {
 .politi {
     width: 10vw;
     height: 12vw;
-    background-image: url(svgs/politi.svg);
+    background-image: url(svgs/kaptajn_hoved.svg);
     background-size: 100%;
-
+    z-index: 3;
 }
 
 .ingenting {
@@ -166,6 +229,7 @@ body {
     width: 10vw;
     height: 12vw;
     overflow: hidden;
+    z-index: 3;
 }
 
 
@@ -175,7 +239,7 @@ body {
     width: 10vw;
     height: 12vw;
     overflow: hidden;
-
+    z-index: 3;
 }
 
 
@@ -185,6 +249,7 @@ body {
     overflow: hidden;
     width: 10vw;
     height: 12vw;
+    z-index: 3;
 }
 
 
@@ -195,7 +260,7 @@ body {
     width: 10vw;
     height: 12vw;
     background-size: 100%;
-
+    z-index: 3;
 }
 
 
@@ -205,7 +270,7 @@ body {
     width: 10vw;
     height: 12vw;
     background-size: 100%;
-
+    z-index: 3;
 }
 
 
@@ -216,7 +281,7 @@ body {
     width: 10vw;
     height: 12vw;
     background-size: 100%;
-
+    z-index: 3;
 }
 
 
@@ -268,10 +333,11 @@ body {
 }
 
 #score_board .antal {
+    font-size: 2vw;
     position: absolute;
     right: 8.6vw;
     top: 2.1vw;
-    color: white;
+    color: #9C7B58;
 
 }
 
@@ -281,9 +347,12 @@ body {
 
 .saek {
     position: absolute;
-    width: 3.2vw;
-    height: 4.2vw;
-    background-image: url(svgs/saek.svg);
+    width: 4.5vw;
+    height: 5vw;
+    background-image: url(images/pandekager.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     background-size: 100%;
 }
 
@@ -294,15 +363,16 @@ body {
     top: 1vw;
     display: flex;
     justify-content: space-between;
+    z-index: 3;
 }
 
 
 .mistetliv {
     width: 3vw;
-    height: 3.5vw;
-    background-image: url(svgs/hand.svg);
+    height: 2.1vw;
+    background-image: url(images/hat.png);
     background-size: 100%;
-
+    z-index: 3;
 }
 
 
@@ -314,7 +384,7 @@ body {
     animation-name: sol_kf;
     animation-duration: 50s;
     animation-iteration-count: infinite;
-
+    z-index: 2;
 }
 
 @keyframes sol_kf {
@@ -375,14 +445,14 @@ body {
     animation-duration: 50s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-out;
-
+    z-index: 2;
 
 }
 
 @keyframes glow_kf {
 
     10% {
-        filter: drop-shadow(10px 10px 20px yellow);
+        filter: drop-shadow(10px 10px 20px rgb(221, 221, 211));
 
     }
 }
@@ -478,33 +548,34 @@ audio {
 /* POSITIONER */
 
 .pos1 {
-    left: 29vw;
-    bottom: 8vw;
+    left: 34vw;
+    bottom: 15.6vw;
 }
 
 .pos2 {
-    right: 7vw;
-    bottom: 6vw;
+    right: 14vw;
+    bottom: 16.3vw;
+    
 }
 
 .pos3 {
-    left: 14vw;
-    bottom: 14vw;
+    left: 42vw;
+    bottom: 35vw;
 }
 
 .pos4 {
-    left: 32vw;
-    bottom: 18vw;
+    left: 54vw;
+    bottom: 14vw;
 }
 
 .pos5 {
-    right: 29vw;
-    bottom: 8vw;
+    right: 25vw;
+    bottom: 33vw;
 }
 
 .pos6 {
-    left: 44vw;
-    bottom: 11vw;
+    right: 3.5vw;
+    bottom: 31.7vw;
 }
 
 .pos7 {
@@ -522,4 +593,25 @@ audio {
     right: 27vw;
 }
 
+@media only screen and (max-width: 600px) {
+    #screen *{
+        display: none;
+    }
+    #blackout {
+        background-color: #9C7B58;
+        width: 100vw;
+        height: 100vh;
+        z-index: 100;
+    }
+    #blackout_text{
+        display: block;
+        position: absolute;
+        font-size: large;
+        top: 40%;
+        left: 7%;
+    }
+  }
+/* @media only screen and (max-width:760px){
+    #import
+} */
 /*Hej Daniel*/

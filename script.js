@@ -1,9 +1,14 @@
 window.addEventListener("load", sidenVises);
+
 let liv;
 let point;
 let myRandom;
 let myRandom2;
 let erSpilletStoppet = false;
+let nisseSound = "#sound_saga";
+
+let kaptajnSoundArr=["#sound_hey","#sound_hovhov"]
+let kaptajnSound = "#sound_hey";
 
 let gameTimer;
 
@@ -16,6 +21,7 @@ function sidenVises() {
     document.querySelector("#start").classList.add("hide");
     document.querySelector("#gameover").classList.add("hide");
     document.querySelector("#levelcomplete").classList.add("hide");
+    document.querySelector("#game").classList.add("hide");
 
     // Viser #start
     document.querySelector("#start").classList.remove("hide");
@@ -29,7 +35,7 @@ function sidenVises() {
     // document.querySelector("#ikanp").addEventListener("click", iknap);
 
     // baggrundslyd
-    document.querySelector("#sound_baggrund").volume = 1;
+    document.querySelector("#sound_baggrund").volume = 0.4;
     document.querySelector("#sound_baggrund").play();
 
 }
@@ -41,6 +47,8 @@ function reload(){
 
 function startspil() {
     console.log("startspil");
+    document.querySelector("#game").classList.remove("hide");
+
 
     //Nustil liv og point
 
@@ -69,6 +77,10 @@ function startspil() {
     document.querySelector("#hul_container_7").addEventListener("click", klikpoliti);
     document.querySelector("#hul_container_8").addEventListener("click", klikpoliti);
     document.querySelector("#hul_container_9").addEventListener("click", klikpoliti);
+
+    //Ørn lyd
+    document.querySelector("#time_sprite").addEventListener("click", kilkoern);
+
 
     
     document.querySelector("#hul1_sprite").classList.add("popup");
@@ -132,20 +144,20 @@ function klikhest() {
     //få point
     
     this.removeEventListener("click", klikhest);
-    point = point + 10000000;
+    point++;
     //Vis samlet antal point
     document.querySelector(".antal").textContent = point;
     
     //hest forsvinder
-    this.querySelector(".hest").classList.remove("delay1");
+    // this.querySelector(".hest").classList.remove("delay1");
     // this.querySelector(".hest").classList.remove("delay2");
     // this.querySelector(".hest").classList.add("forsvind");
     
     // afspil lyd
-    document.querySelector("#sound_hest").volume = 1;
-    document.querySelector("#sound_hest").play();
+    document.querySelector(nisseSound).volume = 1;
+    document.querySelector(nisseSound).play();
     //forsvind animation færdig --> nytilfaeldig
-    this.addEventListener("animationend");
+    // this.addEventListener("animationend");
 
 
 
@@ -154,6 +166,11 @@ function klikhest() {
 
 function ingenting() {
     console.log("ingenting");
+}
+
+function kilkoern() {
+    document.querySelector("#sound_ørn").volume = 1;
+    document.querySelector("#sound_ørn").play();
 }
 
 
@@ -166,11 +183,13 @@ function klikpoliti() {
 
     this.querySelector(".politi").classList.remove("delay1");
     this.querySelector(".politi").classList.remove("delay2");
-    // this.querySelector(".politi").classList.add("forsvind");
+    this.querySelector(".politi").classList.add("forsvind");
 
     // afspil lyd
-    document.querySelector("#sound_politi").volume = 1;
-    document.querySelector("#sound_politi").play();
+    kaptajnSound = kaptajnSoundArr[Math.floor(Math.random()*kaptajnSoundArr.length)]
+
+    document.querySelector(kaptajnSound).volume = 1;
+    document.querySelector(kaptajnSound).play();
 
     //forsvind animation færdig --> nytilfældig
 
@@ -202,14 +221,14 @@ function nytilfaeldigNisse() {
     changeNisse()
     //console.log("nytilfaeldig");
     //giv random pos
-    myRandom = Math.floor(Math.random() * 4 + 1);
+    myRandom = Math.floor(Math.random() * 3 + 1);
     //console.log("nytilfaeldig tal: " + myRandom);
     this.classList.remove("pos1");
     this.classList.remove("pos2");
     this.classList.remove("pos3");
-    this.classList.remove("pos4");
-    this.classList.remove("pos5");
-    console.log(myRandom)
+    // this.classList.remove("pos4");
+    // this.classList.remove("pos5");
+    // console.log(myRandom)
     this.classList.add("pos" + myRandom);
 
     if(myRandom === lastHole){
@@ -229,13 +248,13 @@ function nytilfaeldigNisse() {
 
 function nytilfaeldigKaptajn() {
     //console.log("nytilfaeldig");
+
     //giv random pos
-    myRandom2 = Math.floor(Math.random() * 4 + 5);
+    myRandom2 = Math.floor(Math.random() * 3 + 4);
     //console.log("nytilfaeldig tal: " + myRandom);
+    this.classList.remove("pos4");
+    this.classList.remove("pos5");
     this.classList.remove("pos6");
-    this.classList.remove("pos7");
-    this.classList.remove("pos8");
-    this.classList.remove("pos9");
     // console.log(myRandom2)
     this.classList.add("pos" + myRandom2);
 
@@ -256,13 +275,20 @@ function nytilfaeldigKaptajn() {
 function changeNisse(){
     const nisser = [
       'url("svgs/sigurd.svg")',
-      'url("images/saxo.png")',
+      'url("svgs/saxo_2.svg")',
       'url("svgs/saga.svg")'
     ]
 
     const nisse = document.querySelector(".hest")
     const bgNisse = nisser[Math.floor(Math.random() * nisser.length)];
     nisse.style.backgroundImage = bgNisse;
+    if(bgNisse == nisser[0]){
+        nisseSound = "#sound_sigurd";
+    }else if(bgNisse == nisser[1]){
+        nisseSound = "#sound_saxo";
+    }else{
+        nisseSound = "#sound_saga";
+    }
   }
 //   setInterval(changeNisse, 4000)
 
@@ -316,7 +342,7 @@ function spilstopper() {
 
     //[mere end 110 point] --> vinder
     if (erSpilletStoppet == false) {
-        if (point >= 110000000 && liv >=1) {
+        if (point >= 10 && liv >=1) {
             levelcomplete();
         } else {
             gameover();
@@ -339,6 +365,7 @@ function levelcomplete() {
 
 
     // Viser levelComplete skærmen
+    document.querySelector("#game").classList.add("hide");
     document.querySelector("#levelcomplete").classList.remove("hide");
     // Går til startspil når man klikker på knappen
     document.querySelector("#tryagain2").addEventListener("click", reload);
@@ -354,7 +381,7 @@ function gameover() {
     //registrerer at man har vundet
 
     erSpilletStoppet = true;
-
+    document.querySelector("#game").classList.add("hide");
 
 
     //udskriver liv og point
