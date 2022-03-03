@@ -10,6 +10,14 @@ let nisseSound = "#sound_saga";
 let kaptajnSoundArr=["#sound_hey","#sound_hovhov"]
 let kaptajnSound = "#sound_hey";
 
+let plus1 = document.querySelector("#plus1")
+let plus2 = document.querySelector("#plus2")
+let plus3 = document.querySelector("#plus3")
+
+let minus1 = document.querySelector("#minus1")
+let minus2 = document.querySelector("#minus2")
+let minus3 = document.querySelector("#minus3")
+
 let gameTimer;
 
 
@@ -35,8 +43,6 @@ function sidenVises() {
     // document.querySelector("#ikanp").addEventListener("click", iknap);
 
     // baggrundslyd
-    document.querySelector("#sound_baggrund").volume = 0.4;
-    document.querySelector("#sound_baggrund").play();
 
 }
 
@@ -48,35 +54,35 @@ function reload(){
 function startspil() {
     console.log("startspil");
     document.querySelector("#game").classList.remove("hide");
-
-
+    
+    changeNisse()
+    document.querySelector("#sound_baggrund").volume = 0.07;
+    document.querySelector("#sound_baggrund").play();
+    plus1.classList.add("hide")
+    plus2.classList.add("hide")
+    plus3.classList.add("hide")
+    minus1.classList.add("hide")
+    minus2.classList.add("hide")
+    minus3.classList.add("hide")
     //Nustil liv og point
 
     liv = 3;
     point = 0;
     erSpilletStoppet = false;
 
-    //restarter point ved genstart
-    document.querySelector(".antal").textContent = point;
-    //fjern grey fra liv når den genstarter
-    document.querySelector("#heart1").classList.remove("grey");
-    document.querySelector("#heart2").classList.remove("grey");
-    document.querySelector("#heart3").classList.remove("grey");
-
     // //Start animation på heste
     document.querySelector("#hul_container_1").addEventListener("click", klikhest);
-    document.querySelector("#hul_container_2").addEventListener("click", klikpoliti);
+    // document.querySelector("#hul_container_2").addEventListener("click", klikhest);
+    // document.querySelector("#hul_container_3").addEventListener("click", klikhest);
 
-    document.querySelector("#hul_container_3").addEventListener("click", ingenting);
-
-    document.querySelector("#hul_container_4").addEventListener("click", klikhest);
-    document.querySelector("#hul_container_5").addEventListener("click", klikhest);
+    // document.querySelector("#hul_container_4").addEventListener("click", klikpoliti);
+    // document.querySelector("#hul_container_5").addEventListener("click", klikpoliti);
+    document.querySelector("#hul_container_6").addEventListener("click", klikpoliti);
 
     //Start animation på Politi
-    document.querySelector("#hul_container_6").addEventListener("click", ingenting);
-    document.querySelector("#hul_container_7").addEventListener("click", klikpoliti);
-    document.querySelector("#hul_container_8").addEventListener("click", klikpoliti);
-    document.querySelector("#hul_container_9").addEventListener("click", klikpoliti);
+    // document.querySelector("#hul_container_7").addEventListener("click", klikpoliti);
+    // document.querySelector("#hul_container_8").addEventListener("click", klikpoliti);
+    // document.querySelector("#hul_container_9").addEventListener("click", klikpoliti);
 
     //Ørn lyd
     document.querySelector("#time_sprite").addEventListener("click", kilkoern);
@@ -89,19 +95,19 @@ function startspil() {
     document.querySelector("#hul4_sprite").classList.add("popup");
     document.querySelector("#hul5_sprite").classList.add("popup");
     document.querySelector("#hul6_sprite").classList.add("popup");
-    document.querySelector("#hul7_sprite").classList.add("popup");
-    document.querySelector("#hul8_sprite").classList.add("popup");
-    document.querySelector("#hul9_sprite").classList.add("popup");
+    // document.querySelector("#hul7_sprite").classList.add("popup");
+    // document.querySelector("#hul8_sprite").classList.add("popup");
+    // document.querySelector("#hul9_sprite").classList.add("popup");
 
     document.querySelector("#hul_container_1").addEventListener("animationiteration", nytilfaeldigNisse);
-    document.querySelector("#hul_container_2").addEventListener("animationiteration", nytilfaeldigNisse);
-    document.querySelector("#hul_container_3").addEventListener("animationiteration", nytilfaeldigNisse);
-    document.querySelector("#hul_container_4").addEventListener("animationiteration", nytilfaeldigNisse);
-    document.querySelector("#hul_container_5").addEventListener("animationiteration", nytilfaeldigNisse);
+    // document.querySelector("#hul_container_2").addEventListener("animationiteration", nytilfaeldigNisse);
+    // document.querySelector("#hul_container_3").addEventListener("animationiteration", nytilfaeldigNisse);
+    // document.querySelector("#hul_container_4").addEventListener("animationiteration", nytilfaeldigNisse);
+    // document.querySelector("#hul_container_5").addEventListener("animationiteration", nytilfaeldigNisse);
     document.querySelector("#hul_container_6").addEventListener("animationiteration", nytilfaeldigKaptajn);
-    document.querySelector("#hul_container_7").addEventListener("animationiteration", nytilfaeldigKaptajn);
-    document.querySelector("#hul_container_8").addEventListener("animationiteration", nytilfaeldigKaptajn);
-    document.querySelector("#hul_container_9").addEventListener("animationiteration", nytilfaeldigKaptajn);
+    // document.querySelector("#hul_container_7").addEventListener("animationiteration", nytilfaeldigKaptajn);
+    // document.querySelector("#hul_container_8").addEventListener("animationiteration", nytilfaeldigKaptajn);
+    // document.querySelector("#hul_container_9").addEventListener("animationiteration", nytilfaeldigKaptajn);
 
 
     // Fjerner eventlistnere på tryagain knapper
@@ -131,9 +137,6 @@ function startspil() {
 
 
     // TODO: Afspil lyd.
-    document.querySelector("#sound_baggrund").volume = 1;
-    document.querySelector("#sound_baggrund").play();
-
 }
 
 
@@ -145,6 +148,15 @@ function klikhest() {
     
     this.removeEventListener("click", klikhest);
     point++;
+    if(myRandom == 1){
+        plus1.classList.add("visible")
+     } else if(myRandom == 2){
+         plus2.classList.add("visible")
+     } else if(myRandom == 3){
+         plus3.classList.add("visible")
+     } else{
+         plus1.classList.add("visible")
+     }
     //Vis samlet antal point
     document.querySelector(".antal").textContent = point;
     
@@ -158,9 +170,7 @@ function klikhest() {
     document.querySelector(nisseSound).play();
     //forsvind animation færdig --> nytilfaeldig
     // this.addEventListener("animationend");
-
-
-
+    // this.addEventListener("animationend", nytilfaeldigNisse);
 
 }
 
@@ -177,13 +187,21 @@ function kilkoern() {
 function klikpoliti() {
     console.log("klikpoliti");
 
-
+    if(myRandom2 == 4){
+        minus1.classList.add("visible")
+    }else if(myRandom2 == 5){
+        minus2.classList.add("visible")
+    } else if(myRandom2 == 6){
+        minus3.classList.add("visible")
+    } else{
+        minus3.classList.add("visible")
+    }
     //politi forsvinder
     this.removeEventListener("click", klikpoliti);
 
-    this.querySelector(".politi").classList.remove("delay1");
-    this.querySelector(".politi").classList.remove("delay2");
-    this.querySelector(".politi").classList.add("forsvind");
+    // this.querySelector(".politi").classList.remove("delay1");
+    // this.querySelector(".politi").classList.remove("delay2");
+    // this.querySelector(".politi").classList.add("forsvind");
 
     // afspil lyd
     kaptajnSound = kaptajnSoundArr[Math.floor(Math.random()*kaptajnSoundArr.length)]
@@ -201,7 +219,7 @@ function klikpoliti() {
     //TRANSITIONS------>
     //Forsvindanimationen er færdig -> nytilfaeldig
 
-    this.addEventListener("animationend", nytilfaeldigKaptajn);
+    // this.addEventListener("animationend", nytilfaeldigKaptajn);
     //Ingen liv tilbage -> spilstopper
     if (liv == 0) {
         spilstopper();
@@ -226,22 +244,34 @@ function nytilfaeldigNisse() {
     this.classList.remove("pos1");
     this.classList.remove("pos2");
     this.classList.remove("pos3");
+    plus1.classList.remove("visible")
+    plus2.classList.remove("visible")
+    plus3.classList.remove("visible")
     // this.classList.remove("pos4");
     // this.classList.remove("pos5");
     // console.log(myRandom)
     this.classList.add("pos" + myRandom);
-
-    if(myRandom === lastHole){
-        // console.log("fy fy skamme skamme")
-        // return nytilfaeldigNisse()
+    
+    if(myRandom == 1){
+        document.querySelector("#hul_container_1").addEventListener("click", klikhest);
+        document.querySelector("#hul_container_2").removeEventListener("click", klikhest);
+        document.querySelector("#hul_container_3").removeEventListener("click", klikhest);
+    } else if(myRandom == 2){
+        document.querySelector("#hul_container_2").addEventListener("click", klikhest);
+        document.querySelector("#hul_container_1").removeEventListener("click", klikhest);
+        document.querySelector("#hul_container_3").removeEventListener("click", klikhest);
+    } else if(myRandom == 3){
+        document.querySelector("#hul_container_3").addEventListener("click", klikhest);
+        document.querySelector("#hul_container_1").removeEventListener("click", klikhest);
+        document.querySelector("#hul_container_2").removeEventListener("click", klikhest);
     }
-
+    
     //fjern amination og tilføj igen
     this.firstElementChild.classList.remove("forsvind");
     this.offsetHeight;
 
     this.addEventListener("click", klikhest);
-
+    
 
     lastHole = myRandom
 }
@@ -255,20 +285,32 @@ function nytilfaeldigKaptajn() {
     this.classList.remove("pos4");
     this.classList.remove("pos5");
     this.classList.remove("pos6");
+    minus1.classList.remove("visible")
+    minus2.classList.remove("visible")
+    minus3.classList.remove("visible")
     // console.log(myRandom2)
     this.classList.add("pos" + myRandom2);
-
-    if(myRandom2 === lastHole2){
-        // console.log("fy fy skamme skamme")
-        // return nytilfaeldigKaptajn()
+    
+    if(myRandom2 == 1){
+        document.querySelector("#hul_container_4").addEventListener("click", klikpoliti);
+        document.querySelector("#hul_container_5").removeEventListener("click", klikpoliti);
+        document.querySelector("#hul_container_6").removeEventListener("click", klikpoliti);
+    } else if(myRandom2 == 2){
+        document.querySelector("#hul_container_5").addEventListener("click", klikpoliti);
+        document.querySelector("#hul_container_4").removeEventListener("click", klikpoliti);
+        document.querySelector("#hul_container_6").removeEventListener("click", klikpoliti);
+    } else if(myRandom2 == 3){
+        document.querySelector("#hul_container_6").addEventListener("click", klikpoliti);
+        document.querySelector("#hul_container_4").removeEventListener("click", klikpoliti);
+        document.querySelector("#hul_container_5").removeEventListener("click", klikpoliti);
     }
-
+    
     //fjern amination og tilføj igen
     this.firstElementChild.classList.remove("forsvind");
     this.offsetHeight;
-
+    
     this.addEventListener("click", klikpoliti);
-
+    
     lastHole2 = myRandom2
 }
 
