@@ -123,7 +123,7 @@ function startspil() {
     clearTimeout(gameTimer);
 
     // Starter timeren på 30 sekunder
-    gameTimer = setTimeout(spilstopper, 30000);
+    gameTimer = setTimeout(spilstopper, 45000);
 
 
 
