@@ -467,6 +467,18 @@ body {
     z-index: 2;
 }
 
+#preloader{
+    background: #fefefe url(images/animation_500_l0ceweu9.gif) no-repeat center center;
+    background-size: 25%;
+    height: 100vh;
+    width: 100%;
+    z-index: 100000000000000000;
+}
+
+.hideall *{
+    display: none; 
+}
+
 @keyframes sol_kf {
     0% {
         left: -5vw;
