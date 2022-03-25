@@ -142,7 +142,7 @@ function startspil() {
 
 
 function klikhest() {
-    console.log("klikhest " + point);
+    // console.log("klikhest " + point);
 
     //få point
     
@@ -185,7 +185,7 @@ function kilkoern() {
 
 
 function klikpoliti() {
-    console.log("klikpoliti");
+    // console.log("klikpoliti");
 
     if(myRandom2 == 4){
         minus1.classList.add("visible")
@@ -331,6 +331,14 @@ function changeNisse(){
     }else{
         nisseSound = "#sound_saga";
     }
+
+    if (erSpilletStoppet == false){
+        if (point >= 10 && liv >= 1) {
+            levelcomplete();
+            console.log("du vandt :)");
+        }
+    }
+    
   }
 //   setInterval(changeNisse, 4000)
 
@@ -382,12 +390,11 @@ function spilstopper() {
     document.querySelector("#hul_container_8").removeEventListener("animationiteration", nytilfaeldigKaptajn);
     document.querySelector("#hul_container_9").removeEventListener("animationiteration", nytilfaeldigKaptajn);
 
-    //[mere end 110 point] --> vinder
-    if (erSpilletStoppet == false) {
-        if (point >= 10 && liv >=1) {
-            levelcomplete();
-        } else {
+    //[mere end 10 point] --> vinder
+    if (erSpilletStoppet == false){
+             if(point <= 10 || liv >= 0) {
             gameover();
+            console.log("du tabte :(");
         }
     }
 
@@ -401,7 +408,7 @@ function levelcomplete() {
     //animation stopper
 
     //udskriver liv og point
-    console.log("Du fik: " + point + " point");
+    console.log("Du fik: " + point + " pandekager");
     console.log("Du har: " + liv + " liv");
     //spilskærm blur ud
 
@@ -442,3 +449,19 @@ function gameover() {
     document.querySelector("#sound_taber").volume = 1;
     document.querySelector("#sound_taber").play();
 } 
+
+const yourFunction = async () => {
+    await delay(17150);
+    document.getElementById("AudioPlayer").classList.remove("vend");
+    console.log("Waited 17s");
+  };
+
+const delay = ms => new Promise(res => setTimeout(res, ms));
+
+document.getElementById("AudioPlayer").addEventListener("click", function(){
+    document.getElementById("AudioPlayer").classList.add("vend");
+    document.querySelector("#info_sound").volume = 0.5;
+    document.querySelector("#info_sound").play();
+    yourFunction()
+});
+

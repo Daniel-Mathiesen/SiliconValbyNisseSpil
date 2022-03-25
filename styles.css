@@ -40,7 +40,7 @@ body {
     background-size: 100%;
     width: 100%;
     height: 100%;
-    background-image: url(images/background.jpg);
+    background-image: url(images/background.png);
     /*baggrundsbillede*/
     position: absolute;
 }
@@ -86,7 +86,8 @@ body {
     height: 100%;
     background-image: url(images/titleScreen.jpg);
     /*baggrundsbillede*/
-    background-size: 90%;
+    background-size: 80%;
+    background-position-y: 2vw;
     background-repeat: no-repeat;
     z-index: 10;
 }
@@ -101,9 +102,48 @@ body {
     background-image: url(images/startKnap.png);
     background-repeat: no-repeat;
     background-size: 100%;
-    top: 38vw;
-    left: 78.5vw;
+    top: 39.2vw;
+    left: 72.5vw;
+}
 
+#AudioPlayer{
+    position: relative;
+    top: 3.2vw;
+    left: 105vw;
+    width: 6%;
+    height: 10%;
+    /* background-image: url(images/animation_500_l154aneo.gif);
+    background-repeat: no-repeat; */
+    z-index: 3;
+    transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  border: #D6B34D solid 0.4vw;
+  border-radius: 100%;
+  box-shadow: 0 1px 10px rgb(0 0 0 / 0.2);
+}
+
+#AudioPlayer:active{
+    transform: scale(0.97);
+  transition: transform 0.5s;
+}
+
+#AudioPlayer.vend{
+    transform:rotateY(180deg);
+}
+
+.forside_Audio,
+.bagside_Audio{
+    position: absolute;
+    width: 100%;
+    height:95%;
+    border-radius: 5px;
+    backface-visibility: hidden;
+    border-radius: 100%;
+}
+
+.forside_Audio{
+    transform: rotateY(180deg);
 }
 
 #info{
@@ -112,14 +152,16 @@ body {
     position: absolute;
     width: 30vw;
     height: 6vw;
-    top: 6vw;
-    left: 78.5vw;
+    top: 1vw;
+    left: 72.5vw;
 
 }
 
 #info h3{
     border-bottom: 3px solid black;
     padding-bottom: 10px;
+    color: #161615;
+    font-size: 1.7vw;
 }
 
 #info p{
@@ -481,7 +523,7 @@ body {
 
 @keyframes sol_kf {
     0% {
-        left: -5vw;
+        left: -12vw;
     }
 
     25% {
@@ -493,7 +535,7 @@ body {
     }
 
     100% {
-        left: 100vw;
+        left: 97vw;
     }
 
 }
@@ -706,6 +748,12 @@ audio {
         font-size: large;
         top: 40%;
         left: 7%;
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        flex-direction: column; 
+        top: 25vh;
+        text-align: center;
     }
   }
 /* @media only screen and (max-width:760px){
