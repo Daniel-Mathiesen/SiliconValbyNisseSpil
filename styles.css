@@ -15,6 +15,12 @@ body {
     overflow: hidden;
 }
 
+#test{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #blackout_text{
     display: none;
 }
@@ -106,10 +112,10 @@ body {
     left: 72.5vw;
 }
 
-#AudioPlayer{
+#prøvIgen{
     position: relative;
-    top: 3.2vw;
-    left: 105vw;
+    top:2.2vw;
+    left: 98vw;
     width: 6%;
     height: 10%;
     /* background-image: url(images/animation_500_l154aneo.gif);
@@ -118,8 +124,36 @@ body {
     transform: scale(1);
   transform-style: preserve-3d;
   transition: transform 0.5s;
-  border: #D6B34D solid 0.4vw;
+  border: #D6B34D solid 0.5vw;
   border-radius: 100%;
+  box-shadow: 0 1px 10px rgb(0 0 0 / 0.2); 
+}
+
+.forside_Prøv{
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    width: 85%;
+    height:90%;
+    border-radius: 5px;
+    backface-visibility: hidden;
+    border-radius: 100%;
+}
+
+#AudioPlayer{
+    position: relative;
+    top: 3.2vw;
+    left: 105vw;
+    width: 6vw;
+    height: 6vw;
+    /* background-image: url(images/animation_500_l154aneo.gif);
+    background-repeat: no-repeat; */
+    z-index: 3;
+    transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  border: #D6B34D solid 0.4vw;
+  border-radius: 9999999px;
   box-shadow: 0 1px 10px rgb(0 0 0 / 0.2);
 }
 
@@ -147,6 +181,23 @@ body {
     display: none;
 }
 
+#Wininfo{
+    text-align: center;
+    font-size: 0.01vw;
+    position: absolute;
+    width: 30vw;
+    height: 6vw;
+    top: 14vw;
+    left: 65vw; 
+}
+
+#Wininfo p{
+    font-size: 2vw;
+    line-height: 3vw;
+    color: #D6B34D;
+}
+
+
 #info{
     text-align: center;
     font-size: 0.01vw;
@@ -156,13 +207,6 @@ body {
     top: 1vw;
     left: 72.5vw;
 
-}
-
-#info h3{
-    border-bottom: 3px solid black;
-    padding-bottom: 10px;
-    color: #161615;
-    font-size: 1.7vw;
 }
 
 #info p{

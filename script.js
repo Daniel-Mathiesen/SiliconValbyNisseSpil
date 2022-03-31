@@ -56,7 +56,7 @@ function startspil() {
     document.querySelector("#game").classList.remove("hide");
     
     changeNisse()
-    document.querySelector("#sound_baggrund").volume = 0.07;
+    document.querySelector("#sound_baggrund").volume = 0.02;
     document.querySelector("#sound_baggrund").play();
     plus1.classList.add("hide")
     plus2.classList.add("hide")
@@ -111,8 +111,8 @@ function startspil() {
 
 
     // Fjerner eventlistnere på tryagain knapper
-    document.querySelector("#tryagain1").removeEventListener("click", startspil);
-    document.querySelector("#tryagain2").removeEventListener("click", startspil);
+    // document.querySelector("#tryagain1").removeEventListener("click", startspil);
+    // document.querySelector("#tryagain2").removeEventListener("click", startspil);
 
     // skjuler #start, #gamover og #levelcomplete skærmen
     document.querySelector("#start").classList.add("hide");
@@ -417,7 +417,7 @@ function levelcomplete() {
     document.querySelector("#game").classList.add("hide");
     document.querySelector("#levelcomplete").classList.remove("hide");
     // Går til startspil når man klikker på knappen
-    document.querySelector("#tryagain2").addEventListener("click", reload);
+    // document.querySelector("#tryagain2").addEventListener("click", reload);
 
     //Afspil lyd
     document.querySelector("#sound_vinder").volume = 1;
@@ -442,7 +442,7 @@ function gameover() {
     //vis taberskærm
     document.querySelector("#gameover").classList.remove("hide");
     // Går til startspil når man klikker på knappen
-    document.querySelector("#tryagain1").addEventListener("click", reload);
+    // document.querySelector("#tryagain1").addEventListener("click", reload);
     
 
     //Afspil lyd
@@ -468,4 +468,3 @@ document.getElementById("AudioPlayer").addEventListener("click", function(){
     document.querySelector("#info_sound").play();
     yourFunction()
 });
-

@@ -14,97 +14,110 @@
           <img src="images/animation_300_l16bpmtn.gif" alt="">
           <p>Vend skærmen vandret for at spille!</p>
         </div>
-      <div id="screen" class="hideall">
-        <div id="game">
-          <div id="time_container">
-            <div id="time_sprite"></div>
-          </div>
-          <div id="game_background"></div>
-          <div id="forgrund2"></div>
-          <div id="game_elements">
-            <div id="hul_container_1" class="hole pos1">
-              <div id="hul1_sprite" class="hest delay2"></div>
+        <div id="test">
+          <div id="screen" class="hideall">
+            <div id="game">
+              <div id="time_container">
+                <div id="time_sprite"></div>
+              </div>
+              <div id="game_background"></div>
+              <div id="forgrund2"></div>
+              <div id="game_elements">
+                <div id="hul_container_1" class="hole pos1">
+                  <div id="hul1_sprite" class="hest delay2"></div>
+                </div>
+      
+                <div id="hul_container_2" class="hole pos2">
+                  <div id="hul2_sprite" class="ingenting"></div>
+                </div>
+      
+                <div id="hul_container_3" class="hole pos3">
+                  <div id="hul3_sprite" class="ingenting"></div>
+                </div>
+      
+                <div id="hul_container_4" class="hole pos4">
+                  <div id="hul4_sprite" class="ingenting"></div>
+                </div>
+                <div id="hul_container_5" class="hole pos5">
+                  <div id="hul5_sprite" class="ingenting"></div>
+                </div>
+      
+                <div id="hul_container_6" class="hole pos6">
+                  <div id="hul6_sprite" class="politi delay1"></div>
+                </div>
+      
+                <div id="hul_container_7" class="hole">
+                  <div id="hul7_sprite" class="ingenting"></div>
+                </div>
+      
+                <div id="hul_container_8" class="hole">
+                  <div id="hul8_sprite" class="ingenting"></div>
+                </div>
+      
+                <div id="hul_container_9" class="hole">
+                  <div id="hul9_sprite" class="ingenting"></div>
+                </div>
+              </div>
+              <div id="game_ui">
+                <div id="score_board">
+                  <div class="saek"></div>
+                  <div class="antal">0</div>
+                  <div class="plus1" id="plus1"></div>
+                  <div class="plus2" id="plus2"></div>
+                  <div class="plus3" id="plus3"></div>
+                  <div class="minus1" id="minus1"></div>
+                  <div class="minus2" id="minus2"></div>
+                  <div class="minus3" id="minus3"></div>
+                </div>
+                <div id="energy_board">
+                  <div id="heart1" class="mistetliv"></div>
+                  <div id="heart2" class="mistetliv"></div>
+                  <div id="heart3" class="mistetliv"></div>
+                </div>
+                <div id="time_board"></div>
+              </div>
             </div>
-  
-            <div id="hul_container_2" class="hole pos2">
-              <div id="hul2_sprite" class="ingenting"></div>
+            <div id="start">
+              <div id="AudioPlayer">
+                <img class="forside_Audio" src="images/animation_500_l154aneo.gif" alt="">
+                <img class="bagside_Audio" src="svgs/hue m tale.svg" alt="">
+              </div>
+              <div id="info">
+                <p>Nisserne, Sigurd, Saga og Saxo, vil have alle kaptajnens pandekager til morgenmad! 
+                  <br>
+                  <br>
+                  Når en af nisserne viser sig fra en krukke, skal du trykke på den, så den gemmer sig igen.
+                  <br>
+                  <br>
+                  Du skal samle 10 pandekager inden havørnen flyver ud af kahytten
+                  <br>
+                  <br>
+                  Men pas på! Trykker du på kaptajnen tre gange, bliver nisserne opdaget!!!
+                </p>
+              </div>
+              <div id="startknap"></div>
             </div>
-  
-            <div id="hul_container_3" class="hole pos3">
-              <div id="hul3_sprite" class="ingenting"></div>
+            <div id="gameover">
+              <!-- <div id="tryagain1"></div> -->
+              <div id="prøvIgen" onclick="reload()">
+                <img class="forside_Prøv" src="svgs/arrow.svg" alt="">
+              </div>
             </div>
-  
-            <div id="hul_container_4" class="hole pos4">
-              <div id="hul4_sprite" class="ingenting"></div>
+      
+            <div id="levelcomplete">
+              <!-- <div id="tryagain2"></div> -->
+              <div id="prøvIgen" onclick="reload()">
+                <img class="forside_Prøv" src="svgs/arrow.svg" alt="">
+              </div>
+              <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_0y2x6xwo.json" background="transparent"  speed="0.5"  style="width: 120%; height: 120%;" loop autoplay></lottie-player>
+              <div id="Wininfo">
+                <p>
+                  Vi nåede det! <br> Mon de morgenmadssultne <br> skibsnisser kan klemme en <br> lille pandekage ned mere?
+                </p>
+              </div>
             </div>
-            <div id="hul_container_5" class="hole pos5">
-              <div id="hul5_sprite" class="ingenting"></div>
-            </div>
-  
-            <div id="hul_container_6" class="hole pos6">
-              <div id="hul6_sprite" class="politi delay1"></div>
-            </div>
-  
-            <div id="hul_container_7" class="hole">
-              <div id="hul7_sprite" class="ingenting"></div>
-            </div>
-  
-            <div id="hul_container_8" class="hole">
-              <div id="hul8_sprite" class="ingenting"></div>
-            </div>
-  
-            <div id="hul_container_9" class="hole">
-              <div id="hul9_sprite" class="ingenting"></div>
-            </div>
-          </div>
-          <div id="game_ui">
-            <div id="score_board">
-              <div class="saek"></div>
-              <div class="antal">0</div>
-              <div class="plus1" id="plus1"></div>
-              <div class="plus2" id="plus2"></div>
-              <div class="plus3" id="plus3"></div>
-              <div class="minus1" id="minus1"></div>
-              <div class="minus2" id="minus2"></div>
-              <div class="minus3" id="minus3"></div>
-            </div>
-            <div id="energy_board">
-              <div id="heart1" class="mistetliv"></div>
-              <div id="heart2" class="mistetliv"></div>
-              <div id="heart3" class="mistetliv"></div>
-            </div>
-            <div id="time_board"></div>
           </div>
         </div>
-        <div id="start">
-          <div id="AudioPlayer">
-            <img class="forside_Audio" src="images/animation_500_l154aneo.gif" alt="">
-            <img class="bagside_Audio" src="svgs/hue m tale.svg" alt="">
-          </div>
-          <div id="info">
-            <h3>Sådan spiller du</h3>
-            <p>Nisserne, Sigurd, Saga og Saxo, vil have alle kaptajnens pandekager til morgenmad! 
-              <br>
-              <br>
-              Når en af nisserne viser sig fra en krukke, skal du trykke på den, så den gemmer sig igen.
-              <br>
-              <br>
-              Du skal samle 10 pandekager inden havørnen flyver ud af kahytten
-              <br>
-              <br>
-              Men pas på! Trykker du på kaptajnen tre gange, bliver nisserne opdaget!!!
-            </p>
-          </div>
-          <div id="startknap"></div>
-        </div>
-        <div id="gameover">
-          <div id="tryagain1"></div>
-        </div>
-  
-        <div id="levelcomplete">
-          <div id="tryagain2"></div>
-        </div>
-      </div>
     </div>
 
     <div id="sounds">
@@ -120,6 +133,7 @@
       <audio src="sounds/infomation.mp3" id="info_sound" controls></audio>
     </div>
     <script src="script.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script>
       window.addEventListener("load", function(){
         document.getElementById("screen").classList.remove("hideall")
