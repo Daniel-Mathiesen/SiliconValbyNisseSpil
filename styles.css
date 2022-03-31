@@ -108,7 +108,7 @@ body {
     background-image: url(images/startKnap.png);
     background-repeat: no-repeat;
     background-size: 100%;
-    top: 39.2vw;
+    top: 35vw;
     left: 72.5vw;
 }
 
@@ -426,14 +426,14 @@ body {
 #score_board .saek {
     position: absolute;
     right: 4.0vw;
-    top: 0.5vw;
+    top: 0vw;
 }
 
 #score_board .antal {
     font-size: 2vw;
     position: absolute;
-    right: 8.6vw;
-    top: 2.1vw;
+    right: 9.5vw;
+    top: 0.8vw;
     color: #9C7B58;
 
 }
