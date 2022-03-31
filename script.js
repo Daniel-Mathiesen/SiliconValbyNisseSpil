@@ -56,7 +56,7 @@ function startspil() {
     document.querySelector("#game").classList.remove("hide");
     
     changeNisse()
-    document.querySelector("#sound_baggrund").volume = 0.02;
+    document.querySelector("#sound_baggrund").volume = 0.1;
     document.querySelector("#sound_baggrund").play();
     plus1.classList.add("hide")
     plus2.classList.add("hide")
@@ -450,6 +450,8 @@ function gameover() {
     document.querySelector("#sound_taber").play();
 } 
 
+var click = 0;
+
 const yourFunction = async () => {
     await delay(17150);
     document.querySelector(".bagside_Audio").style.display = "block";
@@ -461,10 +463,20 @@ const yourFunction = async () => {
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
 document.getElementById("AudioPlayer").addEventListener("click", function(){
-    document.querySelector(".forside_Audio").style.display = "block";
-    document.querySelector(".bagside_Audio").style.display = "none";
-    document.getElementById("AudioPlayer").classList.add("vend");
-    document.querySelector("#info_sound").volume = 0.5;
-    document.querySelector("#info_sound").play();
-    yourFunction()
+    if(click === 0){
+        document.querySelector(".forside_Audio").style.display = "block";
+        document.querySelector(".bagside_Audio").style.display = "none";
+        document.getElementById("AudioPlayer").classList.add("vend");
+        document.querySelector("#info_sound").volume = 0.5;
+        document.querySelector("#info_sound").play();
+        yourFunction();
+        click++;
+    } else if(click === 1){
+        document.querySelector(".forside_Audio").style.display = "none";
+        document.querySelector(".bagside_Audio").style.display = "block";
+        document.getElementById("AudioPlayer").classList.remove("vend");
+        document.querySelector("#info_sound").pause();
+        document.querySelector("#info_sound").currentTime = 0;
+        click--;
+    }
 });
