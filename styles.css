@@ -136,7 +136,6 @@ body {
     width: 85%;
     height:90%;
     border-radius: 5px;
-    backface-visibility: hidden;
     border-radius: 100%;
 }
 
