@@ -56,8 +56,8 @@ function startspil() {
     document.querySelector("#game").classList.remove("hide");
     
     changeNisse()
-    document.querySelector("#sound_baggrund").volume = 0.1;
-    document.querySelector("#sound_baggrund").play();
+    // document.querySelector("#sound_baggrund").volume = 0.1;
+    // document.querySelector("#sound_baggrund").play();
     plus1.classList.add("hide")
     plus2.classList.add("hide")
     plus3.classList.add("hide")
