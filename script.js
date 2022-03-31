@@ -452,13 +452,17 @@ function gameover() {
 
 const yourFunction = async () => {
     await delay(17150);
+    document.querySelector(".bagside_Audio").style.display = "block";
     document.getElementById("AudioPlayer").classList.remove("vend");
+    document.querySelector(".forside_Audio").style.display = "none";
     console.log("Waited 17s");
   };
 
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
 document.getElementById("AudioPlayer").addEventListener("click", function(){
+    document.querySelector(".forside_Audio").style.display = "block";
+    document.querySelector(".bagside_Audio").style.display = "none";
     document.getElementById("AudioPlayer").classList.add("vend");
     document.querySelector("#info_sound").volume = 0.5;
     document.querySelector("#info_sound").play();

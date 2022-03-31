@@ -144,6 +144,7 @@ body {
 
 .forside_Audio{
     transform: rotateY(180deg);
+    display: none;
 }
 
 #info{
