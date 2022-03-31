@@ -137,7 +137,6 @@ function startspil() {
 
 
     // TODO: Afspil lyd.
-    levelcomplete()
 }
 
 
