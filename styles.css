@@ -51,19 +51,6 @@ body {
     position: absolute;
 }
 
-
-
-#forgrund2 {
-    background-size: 100%;
-    width: 100%;
-    height: 100%;
-    background-image: url();
-    position: absolute;
-    z-index: 1;
-}
-
-
-
 #time_container {
     position: absolute;
     width: 25vw;
@@ -420,12 +407,14 @@ body {
     height: 100%;
     position: absolute;
     pointer-events: none;
+    z-index: 2;
 }
 
 #score_board .saek {
     position: absolute;
     right: 4.0vw;
     top: 0vw;
+    z-index: 2;
 }
 
 #score_board .antal {
@@ -434,7 +423,7 @@ body {
     right: 9.5vw;
     top: 0.8vw;
     color: #9C7B58;
-
+    z-index: 2;
 }
 
 .hole {
@@ -450,6 +439,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-size: 100%;
+    z-index: 2;
 }
 
 

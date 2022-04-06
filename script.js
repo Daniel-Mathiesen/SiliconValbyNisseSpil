@@ -24,7 +24,7 @@ let gameTimer;
 function sidenVises() {
     //udskriver i konsollen
     console.log("Siden vises");
-
+    document.querySelector("#info_text").addEventListener("click", pancakeClick);
     // Skjuler #start, #gameover og #levelcomplete
     document.querySelector("#start").classList.add("hide");
     document.querySelector("#gameover").classList.add("hide");
@@ -178,10 +178,24 @@ function ingenting() {
     console.log("ingenting");
 }
 
+let ørnClick = 0;
+let textClick = 0;
+
+function pancakeClick() {
+ textClick++;  
+}
+
 function kilkoern() {
     document.querySelector("#sound_ørn").volume = 1;
     document.querySelector("#sound_ørn").play();
+    ørnClick++;
+    if(ørnClick == 2 & textClick == 2){
+        document.querySelector("#kids_sound").volume = 1;
+        document.querySelector("#sound_ørn").pause();
+        document.querySelector("#kids_sound").play();
+    }
 }
+
 
 
 function klikpoliti() {
