@@ -54,6 +54,7 @@ function reload(){
 function startspil() {
     console.log("startspil");
     document.querySelector("#game").classList.remove("hide");
+    document.querySelector("#info_sound").pause();
     
     changeNisse()
     // document.querySelector("#sound_baggrund").volume = 0.1;
