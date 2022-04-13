@@ -23,7 +23,6 @@ let gameTimer;
 
 function sidenVises() {
     //udskriver i konsollen
-    console.log("Siden vises");
     document.querySelector("#info_text").addEventListener("click", pancakeClick);
     // Skjuler #start, #gameover og #levelcomplete
     document.querySelector("#start").classList.add("hide");
@@ -38,27 +37,22 @@ function sidenVises() {
 
     // gør startknappen klikbar
     document.querySelector("#startknap").addEventListener("click", startspil);
-
-    //iknap
-    // document.querySelector("#ikanp").addEventListener("click", iknap);
-
-    // baggrundslyd
-
 }
 
+
+// Functionen refresher side
 function reload(){
     document.location.reload()
 }
 
 
 function startspil() {
-    console.log("startspil");
+    // Fjerner forside
     document.querySelector("#game").classList.remove("hide");
+    // Fjerner info lyd hvis den spiller
     document.querySelector("#info_sound").pause();
     
     changeNisse()
-    // document.querySelector("#sound_baggrund").volume = 0.1;
-    // document.querySelector("#sound_baggrund").play();
     plus1.classList.add("hide")
     plus2.classList.add("hide")
     plus3.classList.add("hide")
@@ -71,49 +65,25 @@ function startspil() {
     point = 0;
     erSpilletStoppet = false;
 
-    // //Start animation på heste
+    // //Start animation på nisser og kaptajn
     document.querySelector("#hul_container_1").addEventListener("click", klikhest);
-    // document.querySelector("#hul_container_2").addEventListener("click", klikhest);
-    // document.querySelector("#hul_container_3").addEventListener("click", klikhest);
-
-    // document.querySelector("#hul_container_4").addEventListener("click", klikpoliti);
-    // document.querySelector("#hul_container_5").addEventListener("click", klikpoliti);
     document.querySelector("#hul_container_6").addEventListener("click", klikpoliti);
-
-    //Start animation på Politi
-    // document.querySelector("#hul_container_7").addEventListener("click", klikpoliti);
-    // document.querySelector("#hul_container_8").addEventListener("click", klikpoliti);
-    // document.querySelector("#hul_container_9").addEventListener("click", klikpoliti);
 
     //Ørn lyd
     document.querySelector("#time_sprite").addEventListener("click", kilkoern);
 
 
-    
+    // Tilføjer popup's på alle huller
     document.querySelector("#hul1_sprite").classList.add("popup");
     document.querySelector("#hul2_sprite").classList.add("popup");
     document.querySelector("#hul3_sprite").classList.add("popup");
     document.querySelector("#hul4_sprite").classList.add("popup");
     document.querySelector("#hul5_sprite").classList.add("popup");
     document.querySelector("#hul6_sprite").classList.add("popup");
-    // document.querySelector("#hul7_sprite").classList.add("popup");
-    // document.querySelector("#hul8_sprite").classList.add("popup");
-    // document.querySelector("#hul9_sprite").classList.add("popup");
 
+    // Finder ny tilfældig position til nisser og kaptajn
     document.querySelector("#hul_container_1").addEventListener("animationiteration", nytilfaeldigNisse);
-    // document.querySelector("#hul_container_2").addEventListener("animationiteration", nytilfaeldigNisse);
-    // document.querySelector("#hul_container_3").addEventListener("animationiteration", nytilfaeldigNisse);
-    // document.querySelector("#hul_container_4").addEventListener("animationiteration", nytilfaeldigNisse);
-    // document.querySelector("#hul_container_5").addEventListener("animationiteration", nytilfaeldigNisse);
     document.querySelector("#hul_container_6").addEventListener("animationiteration", nytilfaeldigKaptajn);
-    // document.querySelector("#hul_container_7").addEventListener("animationiteration", nytilfaeldigKaptajn);
-    // document.querySelector("#hul_container_8").addEventListener("animationiteration", nytilfaeldigKaptajn);
-    // document.querySelector("#hul_container_9").addEventListener("animationiteration", nytilfaeldigKaptajn);
-
-
-    // Fjerner eventlistnere på tryagain knapper
-    // document.querySelector("#tryagain1").removeEventListener("click", startspil);
-    // document.querySelector("#tryagain2").removeEventListener("click", startspil);
 
     // skjuler #start, #gamover og #levelcomplete skærmen
     document.querySelector("#start").classList.add("hide");
@@ -133,20 +103,14 @@ function startspil() {
     document.querySelector('#time_sprite').classList.remove("sol");
     document.querySelector('#time_sprite').offsetHeight;
     document.querySelector('#time_sprite').classList.add("sol");
-
     // functionen kommer længere nede.
-
-
-    // TODO: Afspil lyd.
 }
 
 
 
 function klikhest() {
-    // console.log("klikhest " + point);
-
-    //få point
-    
+    // Finder position af nisse og derefter pandekage plus
+    // Den tjekker hvilket hul nissen er i og derefter gør at plus 1 ligger over nissen
     this.removeEventListener("click", klikhest);
     point++;
     if(myRandom == 1){
@@ -161,24 +125,13 @@ function klikhest() {
     //Vis samlet antal point
     document.querySelector(".antal").textContent = point;
     
-    //hest forsvinder
-    // this.querySelector(".hest").classList.remove("delay1");
-    // this.querySelector(".hest").classList.remove("delay2");
-    // this.querySelector(".hest").classList.add("forsvind");
-    
     // afspil lyd
     document.querySelector(nisseSound).volume = 1;
     document.querySelector(nisseSound).play();
-    //forsvind animation færdig --> nytilfaeldig
-    // this.addEventListener("animationend");
-    // this.addEventListener("animationend", nytilfaeldigNisse);
-
 }
 
-function ingenting() {
-    console.log("ingenting");
-}
-
+// Tjekker efter tryk på ørn og text
+// Psst hvem end der kigger, hvis du trykke 2 gange på informations texten, så spiller og derefter trykke på ørnen 2 gange, finder du en lille easter egg ;)
 let ørnClick = 0;
 let textClick = 0;
 
@@ -198,9 +151,8 @@ function kilkoern() {
 }
 
 
-
+// Functionen der kører når man trykker på en kaptajn
 function klikpoliti() {
-    // console.log("klikpoliti");
 
     if(myRandom2 == 4){
         minus1.classList.add("visible")
@@ -214,11 +166,8 @@ function klikpoliti() {
     //politi forsvinder
     this.removeEventListener("click", klikpoliti);
 
-    // this.querySelector(".politi").classList.remove("delay1");
-    // this.querySelector(".politi").classList.remove("delay2");
-    // this.querySelector(".politi").classList.add("forsvind");
-
     // afspil lyd
+    // Finder en tilfældig kaptajn lyd
     kaptajnSound = kaptajnSoundArr[Math.floor(Math.random()*kaptajnSoundArr.length)]
 
     document.querySelector(kaptajnSound).volume = 1;
@@ -231,19 +180,10 @@ function klikpoliti() {
     //misterliv
     liv--;
 
-    //TRANSITIONS------>
-    //Forsvindanimationen er færdig -> nytilfaeldig
-
-    // this.addEventListener("animationend", nytilfaeldigKaptajn);
     //Ingen liv tilbage -> spilstopper
     if (liv == 0) {
         spilstopper();
     }
-
-    // this.classList.add("paused");
-
-    // this.removeEventListener("click", klikpoliti);
-
 }
 
 let lastHole;
@@ -252,19 +192,14 @@ let lastHole2;
 function nytilfaeldigNisse() {
 
     changeNisse()
-    //console.log("nytilfaeldig");
-    //giv random pos
+    //Finder tilfældig position der ikke kan komme sammen med kaptajn
     myRandom = Math.floor(Math.random() * 3 + 1);
-    //console.log("nytilfaeldig tal: " + myRandom);
     this.classList.remove("pos1");
     this.classList.remove("pos2");
     this.classList.remove("pos3");
     plus1.classList.remove("visible")
     plus2.classList.remove("visible")
     plus3.classList.remove("visible")
-    // this.classList.remove("pos4");
-    // this.classList.remove("pos5");
-    // console.log(myRandom)
     this.classList.add("pos" + myRandom);
     
     if(myRandom == 1){
@@ -292,18 +227,14 @@ function nytilfaeldigNisse() {
 }
 
 function nytilfaeldigKaptajn() {
-    //console.log("nytilfaeldig");
-
-    //giv random pos
+    //Finder tilfældig position der ikke kan komme sammen med nisser
     myRandom2 = Math.floor(Math.random() * 3 + 4);
-    //console.log("nytilfaeldig tal: " + myRandom);
     this.classList.remove("pos4");
     this.classList.remove("pos5");
     this.classList.remove("pos6");
     minus1.classList.remove("visible")
     minus2.classList.remove("visible")
     minus3.classList.remove("visible")
-    // console.log(myRandom2)
     this.classList.add("pos" + myRandom2);
     
     if(myRandom2 == 1){
@@ -329,6 +260,7 @@ function nytilfaeldigKaptajn() {
     lastHole2 = myRandom2
 }
 
+// Finder tilfældig nisse svg hver gang en nisser får ny position
 function changeNisse(){
     const nisser = [
       'url("svgs/sigurd.svg")',
@@ -346,25 +278,19 @@ function changeNisse(){
     }else{
         nisseSound = "#sound_saga";
     }
-
+// Tjekker om spiller har vundet når nisse går ned i hul
     if (erSpilletStoppet == false){
         if (point >= 10 && liv >= 1) {
             levelcomplete();
-            console.log("du vandt :)");
         }
     }
     
   }
-//   setInterval(changeNisse, 4000)
 
 // Spillets stoppe funktioner neden under
 
 function spilstopper() {
-    console.log("spilstopper");
-
     //sluk alle eventlistenere
-
-
     document.querySelector("#hul_container_1").removeEventListener("click", klikhest);
     document.querySelector("#hul_container_1").removeEventListener("click", nytilfaeldigNisse);
     document.querySelector("#hul_container_2").removeEventListener("click", klikhest);
@@ -405,34 +331,29 @@ function spilstopper() {
     document.querySelector("#hul_container_8").removeEventListener("animationiteration", nytilfaeldigKaptajn);
     document.querySelector("#hul_container_9").removeEventListener("animationiteration", nytilfaeldigKaptajn);
 
-    //[mere end 10 point] --> vinder
+    //[mere end 10 point men nul liv] --> taber
     if (erSpilletStoppet == false){
              if(point <= 10 || liv >= 0) {
             gameover();
-            console.log("du tabte :(");
         }
     }
 
 }
 
 function levelcomplete() {
-    console.log("vinder");
 
-    //registrerer at man har tabt
+    //registrerer at man har vundet
     erSpilletStoppet = true;
     //animation stopper
 
     //udskriver liv og point
     console.log("Du fik: " + point + " pandekager");
     console.log("Du har: " + liv + " liv");
-    //spilskærm blur ud
-
 
     // Viser levelComplete skærmen
     document.querySelector("#game").classList.add("hide");
     document.querySelector("#levelcomplete").classList.remove("hide");
     // Går til startspil når man klikker på knappen
-    // document.querySelector("#tryagain2").addEventListener("click", reload);
 
     //Afspil lyd
     document.querySelector("#sound_vinder").volume = 1;
@@ -440,9 +361,7 @@ function levelcomplete() {
 }
 
 function gameover() {
-    console.log("gameover");
-
-    //registrerer at man har vundet
+    //registrerer at man har tabt
 
     erSpilletStoppet = true;
     document.querySelector("#game").classList.add("hide");
@@ -452,31 +371,31 @@ function gameover() {
     console.log("Du fik: " + point + " point");
     console.log("Du har: " + liv + " liv");
 
-    //taberskærm blur ud
-
     //vis taberskærm
     document.querySelector("#gameover").classList.remove("hide");
-    // Går til startspil når man klikker på knappen
-    // document.querySelector("#tryagain1").addEventListener("click", reload);
-    
+    // Går til startspil når man klikker på knappen    
 
     //Afspil lyd
     document.querySelector("#sound_taber").volume = 1;
     document.querySelector("#sound_taber").play();
 } 
 
+// Variable der tjekker 
 var click = 0;
 
+// Timer function
 const yourFunction = async () => {
+    // Antal sekunder
     await delay(17150);
     document.querySelector(".bagside_Audio").style.display = "block";
     document.getElementById("AudioPlayer").classList.remove("vend");
     document.querySelector(".forside_Audio").style.display = "none";
-    console.log("Waited 17s");
   };
 
+// Få timer til at virker i milisekunder
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
+// Vender info player om på anden side og ændre tilbage hvis man trykker igen
 document.getElementById("AudioPlayer").addEventListener("click", function(){
     if(click === 0){
         document.querySelector(".forside_Audio").style.display = "block";

@@ -426,10 +426,6 @@ body {
     z-index: 2;
 }
 
-.hole {
-    
-  }
-
 .saek {
     position: absolute;
     width: 4.5vw;
@@ -460,9 +456,6 @@ body {
     background-size: 100%;
     z-index: 3;
 }
-
-
-#time_board {}
 
 .plus1{
     width: 20vw;
